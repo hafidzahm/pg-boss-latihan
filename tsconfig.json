@@ -10,7 +10,7 @@
     "module": "nodenext", //ok
     "moduleResolution": "nodenext", //added
     "target": "es2022", //changed
-    "types": [],
+    "types": ["node"], //change due to import process
     "esModuleInterop": true, //added
     // For nodejs:
     // "lib": ["esnext"],
