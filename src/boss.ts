@@ -8,6 +8,6 @@ export const boss = new PgBoss({
 
 export async function startBoss() {
   boss.on("error", (error) => console.log({ error })); //setelah buat instance, sebelum start
-  await boss.start(); //wajib untuk starting
+  await boss.start(); //wajib untuk starting, prepare database tujuan dan nyalain job monitoring
   console.log("[pg-boss] started ✅");
 }
