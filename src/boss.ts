@@ -9,5 +9,5 @@ export const boss = new PgBoss({
 export async function startBoss() {
   boss.on("error", (error) => console.log({ error })); //setelah buat instance, sebelum start
   await boss.start(); //wajib untuk starting
-  console.log("[PGBOSS] Service started");
+  console.log("[pg-boss] started ✅");
 }
