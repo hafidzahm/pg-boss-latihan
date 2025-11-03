@@ -8,5 +8,6 @@ const boss = new PgBoss({
 
 async function startBoss() {
   boss.on("error", (error) => console.log({ error })); //setelah buat instance, sebelum start
-  boss.start;
+  await boss.start(); //wajib untuk starting
+  console.log("[PGBOSS] Service started");
 }
