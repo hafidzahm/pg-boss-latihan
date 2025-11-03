@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx src/index.ts"
+    "dev": "tsx src/index.ts",
+    "worker": "tsx src/worker.ts",
+    "producer": "tsx src/producer.ts"
   },
   "keywords": [],
   "author": "",

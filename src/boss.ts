@@ -1,4 +1,5 @@
 import PgBoss from "pg-boss";
+import "dotenv/config";
 
 const DATABASE_URL = process.env.DATABASE_URL as string;
 

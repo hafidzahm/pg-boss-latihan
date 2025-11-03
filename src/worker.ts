@@ -18,3 +18,5 @@ async function main() {
     process.exit(0);
   }
 }
+
+await main();
