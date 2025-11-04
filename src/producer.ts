@@ -4,11 +4,19 @@ async function main() {
   try {
     await startBoss(); // mulai job dan monitoring
     await boss.createQueue("email.send"); //bikin dulu 'barisan antrian'
-    const jobId = await boss.send("email.send", {
-      to: "email@tujuan.com",
-      subject: "Email Test",
-      body: "Test test test",
-    });
+    const jobId = await boss.send(
+      "email.send",
+      {
+        to: "email@tujuan.com",
+        subject: "Email Test",
+        body: "Test test test",
+      },
+      {
+        retryLimit: 5, //maksimal 5 percobaan
+        retryDelay: 2, //mulai 2 detik
+        retryBackoff: true, // 2s -> 4s -> 6s
+      }
+    );
 
     console.log(`Enqueued jobs jobId: ${jobId}`);
   } catch (error) {
