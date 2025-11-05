@@ -28,9 +28,33 @@ async function main() {
         )} time: ${now}`
       );
     });
+
+    // di src/worker.ts
+    process.on("SIGTERM", async () => {
+      console.log("[worker] shutting down gracefully…");
+      await boss.stop({ graceful: true }); // tuntaskan job aktif
+      process.exit(0);
+    });
+
+    process.on("SIGINT", async () => {
+      console.log("[worker] SIGINT");
+      await boss.stop({ graceful: true });
+      process.exit(0);
+    });
   } catch (error) {
     console.error({ error });
-    process.exit(0);
+    // di src/worker.ts
+    process.on("SIGTERM", async () => {
+      console.log("[worker] shutting down gracefully…");
+      await boss.stop({ graceful: true }); // tuntaskan job aktif
+      process.exit(0);
+    });
+
+    process.on("SIGINT", async () => {
+      console.log("[worker] SIGINT");
+      await boss.stop({ graceful: true });
+      process.exit(0);
+    });
   }
 }
 

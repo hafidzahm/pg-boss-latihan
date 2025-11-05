@@ -7,7 +7,7 @@ async function main() {
     await boss.createQueue("email-send"); //bikin antrian
 
     const data = {
-      to: "idempoten-dengan-delay1@contoh.com",
+      to: "idempoten-dengan-delay2@contoh.com",
       subject: "Halo",
       body: "Contoh idempoten",
     };
