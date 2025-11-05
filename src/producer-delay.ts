@@ -4,12 +4,12 @@ async function main() {
   try {
     await startBoss(); //prepares job and job monitoring
     await boss.createQueue("email.send"); // create queue
-    console.log("Awaiting jobs....");
+    // console.log("Awaiting jobs....");
 
     const id = await boss.send(
       "email.send",
       {
-        to: "delay@contoh.com",
+        to: "delay@contohcoba.com",
         subject: "Delay 5 detik",
         body: "Halo delay!",
       },
@@ -28,3 +28,5 @@ async function main() {
     process.exit(1);
   }
 }
+
+await main();
