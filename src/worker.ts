@@ -13,7 +13,10 @@ async function main() {
 
       // simulasi fail 2x
       const jobId = job?.id as string;
-      const number = (attempts.get(jobId) ?? 0) + 1; // cari apakah job id sudah ada, kalo udah ada tambah number += 1
+      console.log({ attempts: attempts });
+
+      const number = ((attempts.get(jobId) ?? 0) + 1) as number; // cari apakah job id sudah ada, kalo udah ada tambah number += 1
+      attempts.set(jobId, number); // update the attempts map with the new count
       if (number < 3) {
         //kalo number kurang dari 3
         console.log(`Simulate fail for jobId: ${job?.id} on number ${number}`);
